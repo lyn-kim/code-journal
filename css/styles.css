@@ -3,7 +3,9 @@
   font-family: Roboto, sans-serif;
 }
 
-img {
+img,
+input,
+textarea {
   width: 100%;
 }
 
