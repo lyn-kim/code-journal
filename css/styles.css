@@ -1,6 +1,9 @@
 * {
   /* font-family: 'Cabin', sans-serif; */
+
+  /* font-family: 'Roboto', sans-serif; */
   font-family: Roboto, sans-serif;
+  color: rgb(34, 34, 34);
 }
 
 img,
@@ -9,7 +12,54 @@ textarea {
   width: 100%;
 }
 
+div > .column-half,
+div > .column-full {
+  padding-left: 0;
+}
+
+.entry-image {
+  margin-bottom: 1rem;
+}
+
+.new-entry {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
 .navbar {
-  padding-left: 3.2rem;
-  background-color: #d9d874;
+  background-color: #176451;
+}
+
+.nav-title {
+  font-family: "Roboto Condensed", sans-serif;
+  letter-spacing: 0.3rem;
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: white;
+}
+
+.label-text {
+  margin-top: 0;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.input-box {
+  margin-bottom: 2rem;
+}
+
+.save-button {
+  text-align: right;
+}
+
+.save-button > button {
+  margin-top: 1.5rem;
+  font-size: 1.2rem;
+  padding: 0.5rem 1.2rem;
+  background-color: #176451;
+  color: white;
+  border-radius: 5px;
+  border: 0 solid;
 }
