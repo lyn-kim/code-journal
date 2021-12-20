@@ -1,0 +1,13 @@
+* {
+  /* font-family: 'Cabin', sans-serif; */
+  font-family: Roboto, sans-serif;
+}
+
+img {
+  width: 100%;
+}
+
+.navbar {
+  padding-left: 3.2rem;
+  background-color: #d9d874;
+}

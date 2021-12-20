@@ -13,13 +13,56 @@
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;700&family=Roboto&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
-  </header>
-  <main>
-  </main>
-  <script src="js/data.js"></script>
-  <script src="js/main.js"></script>
+
+  <div class="row navbar">
+    <div class="column-full nav-text">
+      <h1>Code Journal</h1>
+    </div>
+  </div>
+
+  <div class="container">
+    <header class="row">New Entry</header>
+    <main class="row" data-view="entry-form">
+      <form>
+
+        <div class="row">
+          <div class="column-half">
+            <img src="images/placeholder-image-square.jpg" alt="">
+          </div>
+          <div class="column-half">
+            <label for="title">
+              <p>Title</p>
+              <input id="title" type="text">
+            </label>
+            <label for="url">
+              <p>Photo URL</p>
+              <input id="url" type="url">
+            </label>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="column-full">
+            <label for="notes">
+              <p>Notes</p>
+              <textarea id="notes" name="notes" rows="4" cols="25"></textarea>
+            </label>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="column-full">
+            <button>SAVE</button>
+          </div>
+        </div>
+
+      </form>
+    </main>
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+  </div>
 </body>
 </html>
