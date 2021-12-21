@@ -37,7 +37,7 @@
 
         <div class="row">
           <div class="column-half">
-            <img class="entry-image" src="images/placeholder-image-square.jpg" alt="">
+            <img id="preview" class="entry-image" src="images/placeholder-image-square.jpg" alt="">
           </div>
           <div class="column-half">
             <label for="title">
@@ -46,7 +46,7 @@
             </label>
             <label for="url">
               <p class="label-text">Photo URL</p>
-              <input id="url" type="url" class="input-box" required="required">
+              <input id="img-url" type="url" class="input-box" required="required">
             </label>
           </div>
         </div>
@@ -55,14 +55,14 @@
           <div class="column-full">
             <label for="notes">
               <p class="label-text">Notes</p>
-              <textarea id="notes" name="notes" rows="4" cols="25" required="required"></textarea>
+              <textarea id="notes" class="text-box" name="notes" rows="4" cols="25" required="required"></textarea>
             </label>
           </div>
         </div>
 
         <div class="row">
           <div class="column-full save-button">
-            <button>SAVE</button>
+            <button type="submit">SAVE</button>
           </div>
         </div>
 
