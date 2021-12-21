@@ -25,8 +25,21 @@ function collectInput(event) {
     entryId: data.nextEntryId++
   };
   data.entries.unshift(inputs);
-  // console.log('inputs:', inputs);
-  // console.log('data:', data);
   preview.src = defaultSrc;
   entryForm.reset();
+}
+
+var previousInputJSON = localStorage.getItem('entry');
+if (previousInputJSON !== null) {
+  data.entries = JSON.parse(previousInputJSON);
+  data.nextEntryId = parseInt(localStorage.getItem('entryId'), 10);
+}
+
+window.addEventListener('beforeunload', storeInput);
+
+function storeInput(event) {
+  var entryInputJSON = JSON.stringify(data.entries);
+  localStorage.setItem('entry', entryInputJSON);
+  localStorage.setItem('entryId', data.nextEntryId.toString());
+  // console.log(data.nextEntryId);
 }
