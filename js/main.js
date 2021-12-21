@@ -20,7 +20,8 @@ function collectInput(event) {
   var inputs = {
     title: title,
     url: url,
-    notes: notes
+    notes: notes,
+    entryId: data.nextEntryId++
   };
   entryForm.reset();
   return inputs;
