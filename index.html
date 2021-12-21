@@ -33,7 +33,7 @@
   <div class="container">
     <main class="row" data-view="entry-form">
       <header class="row new-entry">New Entry</header>
-      <form>
+      <form id="entry-form">
 
         <div class="row">
           <div class="column-half">
@@ -42,11 +42,11 @@
           <div class="column-half">
             <label for="title">
               <p class="label-text">Title</p>
-              <input id="title" type="text" class="input-box" required="required">
+              <input id="title" type="text" class="input-box" name="title" required="required">
             </label>
             <label for="url">
               <p class="label-text">Photo URL</p>
-              <input id="img-url" type="url" class="input-box" required="required">
+              <input id="img-url" type="url" class="input-box" name="url" required="required">
             </label>
           </div>
         </div>

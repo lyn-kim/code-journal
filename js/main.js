@@ -1,14 +1,27 @@
 /* global data */
 /* exported data */
 
-// Listen for 'input' events on the photoUrl input
-// to update the src attribute of the photo preview
-// when the input value changes.
-
 var imageUrlInput = document.querySelector('#img-url');
 var preview = document.querySelector('#preview');
 imageUrlInput.addEventListener('input', displayImg);
 
 function displayImg(event) {
   preview.src = event.target.value;
+}
+
+var entryForm = document.querySelector('#entry-form');
+entryForm.addEventListener('submit', collectInput);
+
+function collectInput(event) {
+  event.preventDefault();
+  var title = entryForm.elements.title.value;
+  var url = entryForm.elements.url.value;
+  var notes = entryForm.elements.notes.value;
+  var inputs = {
+    title: title,
+    url: url,
+    notes: notes
+  };
+  entryForm.reset();
+  return inputs;
 }
