@@ -64,7 +64,17 @@ function getEntry(journal) {
   return listItem;
 }
 
+// var singleEntry = document.querySelector('.list');
+
+// for (var i = 0; i < data.entries.length; i++) {
+//   singleEntry.appendChild(getEntry(data.entries[i]));
+// }
+
 var singleEntry = document.querySelector('.list');
-for (var i = 0; i < data.entries.length; i++) {
-  singleEntry.appendChild(getEntry(data.entries[i]));
+window.addEventListener('DOMContentLoaded', loadEntry);
+
+function loadEntry(event) {
+  for (var i = 0; i < data.entries.length; i++) {
+    singleEntry.appendChild(getEntry(data.entries[i]));
+  }
 }
