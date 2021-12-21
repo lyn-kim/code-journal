@@ -3,16 +3,39 @@
   color: rgb(34, 34, 34);
 }
 
+html {
+  height: 100%;
+}
+
 img,
 input,
 textarea {
   width: 100%;
 }
 
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
 div > .column-half,
 div > .column-full,
+div.column-half,
 .column-full.new-entry {
   padding-left: 0;
+  padding-right: 1.5rem;
+}
+
+.no-margin-top {
+  margin-top: 0;
+}
+
+.padding-left {
+  padding-left: 1rem;
+}
+
+.single-entry {
+  margin-bottom: 2rem;
 }
 
 .entries-view {
@@ -24,6 +47,11 @@ div > .column-full,
 .entry-image {
   margin-bottom: 1rem;
   border-radius: 5px;
+}
+
+.entry-text {
+  font-size: 1.2rem;
+  line-height: 2rem;
 }
 
 .new-entry {
@@ -106,5 +134,4 @@ input:focus {
 .new-button {
   align-self: center;
   margin-inline-start: auto;
-}
 }
