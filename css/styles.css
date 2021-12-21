@@ -10,7 +10,8 @@ textarea {
 }
 
 div > .column-half,
-div > .column-full {
+div > .column-full,
+.column-full.new-entry {
   padding-left: 0;
 }
 

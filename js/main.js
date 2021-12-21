@@ -28,17 +28,3 @@ function collectInput(event) {
   preview.src = defaultSrc;
   entryForm.reset();
 }
-
-var previousInputJSON = localStorage.getItem('entry');
-if (previousInputJSON !== null) {
-  data.entries = JSON.parse(previousInputJSON);
-  data.nextEntryId = parseInt(localStorage.getItem('entryId'), 10);
-}
-
-window.addEventListener('beforeunload', storeInput);
-
-function storeInput(event) {
-  var entryInputJSON = JSON.stringify(data.entries);
-  localStorage.setItem('entry', entryInputJSON);
-  localStorage.setItem('entryId', data.nextEntryId.toString());
-}
