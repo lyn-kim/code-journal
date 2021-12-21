@@ -41,5 +41,4 @@ function storeInput(event) {
   var entryInputJSON = JSON.stringify(data.entries);
   localStorage.setItem('entry', entryInputJSON);
   localStorage.setItem('entryId', data.nextEntryId.toString());
-  // console.log(data.nextEntryId);
 }
