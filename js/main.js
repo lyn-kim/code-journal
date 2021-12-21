@@ -24,5 +24,7 @@ function collectInput(event) {
     entryId: data.nextEntryId++
   };
   entryForm.reset();
-  return inputs;
+  data.entries.unshift(inputs);
+  // console.log('inputs:', inputs);
+  // console.log('data:', data);
 }
