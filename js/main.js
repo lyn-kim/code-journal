@@ -3,6 +3,7 @@
 
 var imageUrlInput = document.querySelector('#img-url');
 var preview = document.querySelector('#preview');
+var defaultSrc = preview.src;
 imageUrlInput.addEventListener('input', displayImg);
 
 function displayImg(event) {
@@ -23,8 +24,9 @@ function collectInput(event) {
     notes: notes,
     entryId: data.nextEntryId++
   };
-  entryForm.reset();
   data.entries.unshift(inputs);
   // console.log('inputs:', inputs);
   // console.log('data:', data);
+  preview.src = defaultSrc;
+  entryForm.reset();
 }
