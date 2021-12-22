@@ -71,6 +71,16 @@ function loadEntry(event) {
   for (var i = 0; i < data.entries.length; i++) {
     singleEntry.appendChild(getEntry(data.entries[i]));
   }
+  checkEmptyList();
+}
+
+var noEntryMsg = document.querySelector('.message');
+function checkEmptyList() {
+  if (data.entries.length === 0) {
+    noEntryMsg.className = 'message';
+  } else {
+    noEntryMsg.className = 'message hidden';
+  }
 }
 
 var newButton = document.querySelector('.new-button');
@@ -103,6 +113,18 @@ function showEntries(dataView) {
       $views[i].className = 'row';
     } else {
       $views[i].className = 'row hidden';
+    }
+  }
+}
+
+var navEntryButton = document.querySelector('.nav-entries');
+navEntryButton.addEventListener('click', goToEntries);
+function goToEntries() {
+  for (var i = 0; i < $views.length; i++) {
+    if ($views[i].getAttribute('data-view') === 'entry-form') {
+      $views[i].className = 'row hidden';
+    } else {
+      $views[i].className = 'row';
     }
   }
 }
