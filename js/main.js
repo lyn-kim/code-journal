@@ -79,10 +79,24 @@ function loadEntry(event) {
   }
 }
 
-var hidden = document.querySelector('div.relative');
+// var hidden = document.querySelector('div.relative');
+// var newButton = document.querySelector('.new-button');
+
+// newButton.addEventListener('click', closeEntries);
+// function closeEntries(event) {
+//   event.preventDefault();
+//   hidden.className = 'relative hidden';
+// }
+
 var newButton = document.querySelector('.new-button');
-newButton.addEventListener('click', closeEntries);
-function closeEntries(event) {
-  event.preventDefault();
-  hidden.className = 'relative hidden';
+var hidden = document.querySelector('div.relative');
+
+newButton.addEventListener('click', showEntryForm);
+function showEntryForm(event) {
+  var dataView = event.target.getAttribute('data-view');
+  if (newButton.getAttribute('data-view') === dataView) {
+    hidden.className = 'relative hidden';
+  } else {
+    hidden.className = 'relative';
+  }
 }
