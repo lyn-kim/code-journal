@@ -139,7 +139,8 @@ a.anchor-button {
 }
 
 @media screen and (max-width: 768px) {
-  div.column-half {
+  div.column-half,
+  div > .column-full {
     padding-right: 0;
   }
 }
