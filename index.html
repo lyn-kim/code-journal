@@ -18,52 +18,35 @@
     rel="stylesheet">
 </head>
 <body>
-  <!-- entries list view -->
-  <div class="relative">
-    <div class="fixed entries-view">
-      <div class="navbar">
-        <div class="container">
-          <div class="row">
-            <div class="row">
-              <p class="nav-title">CODE JOURNAL</p>
-              <p class="nav-entries">Entries</p>
-            </div>
-          </div>
-        </div>
-      </div>
 
-      <div class="container">
-
-        <div class="row" data-view="entries">
-          <header class="new-entry">Entries</header>
-          <div class="new-button">
-            <a class="anchor-button" href="">NEW</a>
-          </div>
-        </div>
-
-        <div class="row">
-          <ul class="list">
-
-          </ul>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-  <!-- entry form view -->
   <div class="navbar">
     <div class="container">
       <div class="row">
         <div class="row">
           <p class="nav-title">CODE JOURNAL</p>
-          <p class="nav-entries"><a href="">Entries</a></p>
+          <p class="nav-entries">Entries</p>
         </div>
       </div>
     </div>
   </div>
 
   <div class="container">
+
+    <!-- entries list view -->
+    <div class="row hidden" data-view="entries">
+      <header class="new-entry">Entries</header>
+      <div class="new-button">
+        <a class="anchor-button" href="">NEW</a>
+      </div>
+      <!-- where DOM appends to for new entries received -->
+      <div class="row">
+        <ul class="list">
+
+        </ul>
+      </div>
+    </div>
+
+    <!-- entry form view -->
     <div class="row" data-view="entry-form">
       <header class="column-full new-entry">New Entry</header>
       <form id="entry-form">
@@ -82,7 +65,6 @@
             </label>
           </div>
         </div>
-
         <div class="row">
           <div class="column-full">
             <label for="notes">
@@ -91,17 +73,17 @@
             </label>
           </div>
         </div>
-
         <div class="row">
           <div class="column-full save-button">
             <button type="submit">SAVE</button>
           </div>
         </div>
       </form>
-
     </div>
-    <script src="js/data.js"></script>
-    <script src="js/main.js"></script>
+
   </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>

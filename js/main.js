@@ -27,10 +27,10 @@ function collectInput(event) {
   data.entries.unshift(inputs);
   preview.src = defaultSrc;
   entryForm.reset();
+  buttonSave();
+  singleEntry.innerHTML = '';
+  loadEntry();
 }
-
-// Define a function that takes a single journal entry object
-// and returns a DOM tree that matches one of the example entries in the HTML.
 
 function getEntry(journal) {
   var listItem = document.createElement('li');
@@ -64,12 +64,6 @@ function getEntry(journal) {
   return listItem;
 }
 
-// var singleEntry = document.querySelector('.list');
-
-// for (var i = 0; i < data.entries.length; i++) {
-//   singleEntry.appendChild(getEntry(data.entries[i]));
-// }
-
 var singleEntry = document.querySelector('.list');
 window.addEventListener('DOMContentLoaded', loadEntry);
 
@@ -79,24 +73,36 @@ function loadEntry(event) {
   }
 }
 
-// var hidden = document.querySelector('div.relative');
-// var newButton = document.querySelector('.new-button');
-
-// newButton.addEventListener('click', closeEntries);
-// function closeEntries(event) {
-//   event.preventDefault();
-//   hidden.className = 'relative hidden';
-// }
-
 var newButton = document.querySelector('.new-button');
-var hidden = document.querySelector('div.relative');
+newButton.addEventListener('click', buttonNew);
 
-newButton.addEventListener('click', showEntryForm);
-function showEntryForm(event) {
-  var dataView = event.target.getAttribute('data-view');
-  if (newButton.getAttribute('data-view') === dataView) {
-    hidden.className = 'relative hidden';
-  } else {
-    hidden.className = 'relative';
+function buttonNew() {
+  event.preventDefault();
+  showEntryForm('entry-form');
+}
+
+var $views = document.querySelectorAll('div[data-view]');
+
+function showEntryForm(dataView) {
+  for (var i = 0; i < $views.length; i++) {
+    if ($views[i].getAttribute('data-view') === dataView) {
+      $views[i].className = 'row';
+    } else {
+      $views[i].className = 'row hidden';
+    }
+  }
+}
+
+function buttonSave() {
+  showEntries('entries');
+}
+
+function showEntries(dataView) {
+  for (var i = 0; i < $views.length; i++) {
+    if ($views[i].getAttribute('data-view') === dataView) {
+      $views[i].className = 'row';
+    } else {
+      $views[i].className = 'row hidden';
+    }
   }
 }
