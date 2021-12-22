@@ -78,3 +78,11 @@ function loadEntry(event) {
     singleEntry.appendChild(getEntry(data.entries[i]));
   }
 }
+
+var hidden = document.querySelector('div.relative');
+var newButton = document.querySelector('.new-button');
+newButton.addEventListener('click', closeEntries);
+function closeEntries(event) {
+  event.preventDefault();
+  hidden.className = 'relative hidden';
+}
