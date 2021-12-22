@@ -30,10 +30,6 @@ div.column-half,
   margin-top: 0;
 }
 
-.padding-left {
-  padding-left: 1rem;
-}
-
 .message {
   display: contents;
 }
@@ -140,4 +136,10 @@ a.anchor-button {
 .save-button {
   text-align: right;
   margin-top: 1.2rem;
+}
+
+@media screen and (max-width: 768px) {
+  div.column-half {
+    padding-right: 0;
+  }
 }
