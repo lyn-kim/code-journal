@@ -32,9 +32,12 @@ function collectInput(event) {
   checkEmptyList();
 }
 
-function generateDom(journal) {
+function generateDom(entry) {
   var listItem = document.createElement('li');
   listItem.className = 'row single-entry';
+
+  var specificID = entry.entryId;
+  listItem.setAttribute('data-entry-id', specificID);
 
   var columnHalf = document.createElement('div');
   columnHalf.className = 'column-half';
@@ -42,7 +45,7 @@ function generateDom(journal) {
 
   var entryImg = document.createElement('img');
   entryImg.className = 'entry-image';
-  entryImg.src = journal.url;
+  entryImg.src = entry.url;
   columnHalf.appendChild(entryImg);
 
   columnHalf = document.createElement('div');
@@ -50,7 +53,7 @@ function generateDom(journal) {
   listItem.appendChild(columnHalf);
 
   var entryTitle = document.createElement('h2');
-  var titleText = document.createTextNode(journal.title);
+  var titleText = document.createTextNode(entry.title);
   entryTitle.appendChild(titleText);
   entryTitle.className = 'no-margin-top flex';
   columnHalf.appendChild(entryTitle);
@@ -60,7 +63,7 @@ function generateDom(journal) {
   entryTitle.appendChild(icon);
 
   var entryText = document.createElement('p');
-  var noteInput = document.createTextNode(journal.notes);
+  var noteInput = document.createTextNode(entry.notes);
   entryText.appendChild(noteInput);
   entryText.className = 'entry-text';
   columnHalf.appendChild(entryText);
