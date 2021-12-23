@@ -28,11 +28,10 @@ function collectInput(event) {
   preview.src = defaultSrc;
   entryForm.reset();
   buttonSave();
-  singleEntry.innerHTML = '';
-  loadEntry();
+  singleEntry.prepend(generateDom(inputs));
 }
 
-function getEntry(journal) {
+function generateDom(journal) {
   var listItem = document.createElement('li');
   listItem.className = 'row single-entry';
 
@@ -69,7 +68,7 @@ window.addEventListener('DOMContentLoaded', loadEntry);
 
 function loadEntry(event) {
   for (var i = 0; i < data.entries.length; i++) {
-    singleEntry.appendChild(getEntry(data.entries[i]));
+    singleEntry.appendChild(generateDom(data.entries[i]));
   }
   checkEmptyList();
 }
@@ -83,31 +82,20 @@ function checkEmptyList() {
   }
 }
 
+var $views = document.querySelectorAll('div[data-view]');
+
 var newButton = document.querySelector('.new-button');
 newButton.addEventListener('click', buttonNew);
 
 function buttonNew() {
-  event.preventDefault();
-  showEntryForm('entry-form');
-}
-
-var $views = document.querySelectorAll('div[data-view]');
-
-function showEntryForm(dataView) {
-  for (var i = 0; i < $views.length; i++) {
-    if ($views[i].getAttribute('data-view') === dataView) {
-      $views[i].className = 'row';
-    } else {
-      $views[i].className = 'row hidden';
-    }
-  }
+  switchView('entry-form');
 }
 
 function buttonSave() {
-  showEntries('entries');
+  switchView('entries');
 }
 
-function showEntries(dataView) {
+function switchView(dataView) {
   for (var i = 0; i < $views.length; i++) {
     if ($views[i].getAttribute('data-view') === dataView) {
       $views[i].className = 'row';
@@ -120,11 +108,5 @@ function showEntries(dataView) {
 var navEntryButton = document.querySelector('.nav-entries');
 navEntryButton.addEventListener('click', goToEntries);
 function goToEntries() {
-  for (var i = 0; i < $views.length; i++) {
-    if ($views[i].getAttribute('data-view') === 'entry-form') {
-      $views[i].className = 'row hidden';
-    } else {
-      $views[i].className = 'row';
-    }
-  }
+  switchView('entries');
 }
