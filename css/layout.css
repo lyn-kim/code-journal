@@ -8,6 +8,15 @@
   padding: 0 1.5rem;
 }
 
+.relative {
+  position: relative;
+}
+
+.fixed {
+  position: fixed;
+  overflow-y: scroll;
+}
+
 .row {
   display: flex;
   flex-wrap: wrap;

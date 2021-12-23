@@ -9,15 +9,43 @@ textarea {
   width: 100%;
 }
 
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
 div > .column-half,
 div > .column-full,
+div.column-half,
 .column-full.new-entry {
   padding-left: 0;
+  padding-right: 1.5rem;
+}
+
+.no-margin-top {
+  margin-top: 0;
+}
+
+.message {
+  display: contents;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.single-entry {
+  margin-bottom: 2rem;
 }
 
 .entry-image {
   margin-bottom: 1rem;
   border-radius: 5px;
+}
+
+.entry-text {
+  font-size: 1.2rem;
+  line-height: 2rem;
 }
 
 .new-entry {
@@ -33,10 +61,24 @@ div > .column-full,
 
 .nav-title {
   font-family: "Roboto Condensed", sans-serif;
+  color: white;
   letter-spacing: 0.3rem;
   font-size: 1.6rem;
   font-weight: 400;
-  color: white;
+  margin-right: 2rem;
+}
+
+.nav-entries {
+  margin-block: auto;
+  align-items: center;
+  justify-content: center;
+  color: #d6e2df;
+  font-size: 1.3rem;
+}
+
+.nav-entries > a {
+  text-decoration: none;
+  color: #d6e2df;
 }
 
 .label-text {
@@ -68,16 +110,33 @@ input:focus {
   padding-left: 0.5rem;
 }
 
-.save-button {
-  text-align: right;
-}
-
-.save-button > button {
-  margin-top: 1.2rem;
+.save-button > button,
+a.anchor-button {
   font-size: 1.2rem;
   padding: 0.5rem 1.2rem;
   background-color: #176451;
   color: white;
   border-radius: 5px;
   border: 0 solid;
+}
+
+.anchor-button {
+  text-decoration: none;
+}
+
+.new-button {
+  margin-left: auto;
+  align-self: center;
+}
+
+.save-button {
+  text-align: right;
+  margin-top: 1.2rem;
+}
+
+@media screen and (max-width: 768px) {
+  div.column-half,
+  div > .column-full {
+    padding-right: 0;
+  }
 }
