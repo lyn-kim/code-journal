@@ -52,8 +52,16 @@ function generateDom(journal) {
   var entryTitle = document.createElement('h2');
   var titleText = document.createTextNode(journal.title);
   entryTitle.appendChild(titleText);
-  entryTitle.className = 'no-margin-top';
+  entryTitle.className = 'no-margin-top flex';
   columnHalf.appendChild(entryTitle);
+
+  // var editIconContainer = document.querySelector('span');
+  // editIconContainer.className = 'edit-icon';
+  // entryTitle.appendChild(editIconContainer);
+
+  // var icon = document.querySelector('i');
+  // icon.className = 'fas fa-pen';
+  // editIconContainer.appendChild(icon);
 
   var entryText = document.createElement('p');
   var noteInput = document.createTextNode(journal.notes);
