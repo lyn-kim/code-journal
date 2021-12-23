@@ -29,6 +29,7 @@ function collectInput(event) {
   entryForm.reset();
   buttonSave();
   singleEntry.prepend(generateDom(inputs));
+  checkEmptyList();
 }
 
 function generateDom(journal) {
