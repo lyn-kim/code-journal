@@ -55,13 +55,9 @@ function generateDom(journal) {
   entryTitle.className = 'no-margin-top flex';
   columnHalf.appendChild(entryTitle);
 
-  // var editIconContainer = document.querySelector('span');
-  // editIconContainer.className = 'edit-icon';
-  // entryTitle.appendChild(editIconContainer);
-
-  // var icon = document.querySelector('i');
-  // icon.className = 'fas fa-pen';
-  // editIconContainer.appendChild(icon);
+  var icon = document.createElement('i');
+  icon.className = 'fas fa-pen margin-left-auto';
+  entryTitle.appendChild(icon);
 
   var entryText = document.createElement('p');
   var noteInput = document.createTextNode(journal.notes);

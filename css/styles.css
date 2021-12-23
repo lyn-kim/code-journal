@@ -30,6 +30,11 @@ div.column-half,
   margin-top: 0;
 }
 
+/* just for pen icon */
+.margin-left-auto {
+  margin-left: auto;
+}
+
 .message {
   display: contents;
 }
