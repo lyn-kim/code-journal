@@ -138,6 +138,15 @@ function editButton(event) {
     if (data.entries[i].entryId === specificIdNumber) {
       switchToEditEntries();
       data.editing = data.entries[i];
+
+      var entryTitle = document.getElementById('entryTitle');
+      entryTitle.value = data.editing.title;
+
+      var imgUrl = document.getElementById('img-url');
+      imgUrl.value = data.editing.url;
+
+      var notes = document.getElementById('notes');
+      notes.value = data.editing.notes;
     }
   }
 }
