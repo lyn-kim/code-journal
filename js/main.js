@@ -158,6 +158,9 @@ function editButton(event) {
       switchToEditEntries();
       data.editing = data.entries[i];
 
+      var editEntriesTitle = document.getElementById('editEntry');
+      editEntriesTitle.textContent = 'Edit Entries';
+
       var entryTitle = document.getElementById('entryTitle');
       entryTitle.value = data.editing.title;
 
