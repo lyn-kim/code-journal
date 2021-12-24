@@ -118,3 +118,25 @@ navEntryButton.addEventListener('click', goToEntries);
 function goToEntries() {
   switchView('entries');
 }
+
+function switchToEditEntries() {
+  switchView('entry-form');
+}
+
+var clickToEdit = document.querySelector('ul');
+clickToEdit.addEventListener('click', editButton);
+
+function editButton(event) {
+  if (event.target.tagName !== 'I') {
+    return;
+  }
+
+  for (var i = 0; i < data.entries.length; i++) {
+    var parentElement = event.target.closest('li');
+    var specificId = parentElement.getAttribute('data-entry-id');
+    var specificIdNumber = parseInt(specificId);
+    if (data.entries[i].entryId === specificIdNumber) {
+      switchToEditEntries();
+    }
+  }
+}
