@@ -137,6 +137,7 @@ function editButton(event) {
     var specificIdNumber = parseInt(specificId);
     if (data.entries[i].entryId === specificIdNumber) {
       switchToEditEntries();
+      data.editing = data.entries[i];
     }
   }
 }
