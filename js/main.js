@@ -18,17 +18,35 @@ function collectInput(event) {
   var title = entryForm.elements.title.value;
   var url = entryForm.elements.url.value;
   var notes = entryForm.elements.notes.value;
+  var editing = data.editing;
+
   var inputs = {
     title: title,
     url: url,
-    notes: notes,
-    entryId: data.nextEntryId++
+    notes: notes
   };
-  data.entries.unshift(inputs);
+
+  if (editing !== null) {
+    inputs.entryId = editing.entryId;
+  } else {
+    inputs.entryId = data.nextEntryId++;
+  }
+
   preview.src = defaultSrc;
   entryForm.reset();
   buttonSave();
-  singleEntry.prepend(generateDom(inputs));
+
+  if (editing === null) {
+    singleEntry.prepend(generateDom(inputs));
+    data.entries.unshift(inputs);
+  } else {
+    var existingEntry = document.querySelector('[data-entry-id="' + editing.entryId + '"]');
+    existingEntry.parentNode.replaceChild(generateDom(inputs), existingEntry);
+    var entryIndex = data.entries.findIndex(function (entry) {
+      return entry.entryId === editing.entryId;
+    });
+    data.entries[entryIndex] = inputs;
+  }
   checkEmptyList();
 }
 
@@ -96,6 +114,7 @@ var newButton = document.querySelector('.new-button');
 newButton.addEventListener('click', buttonNew);
 
 function buttonNew() {
+  data.editing = null;
   switchView('entry-form');
 }
 
