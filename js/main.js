@@ -41,7 +41,7 @@ function collectInput(event) {
     data.entries.unshift(inputs);
   } else {
     var existingEntry = document.querySelector('[data-entry-id="' + editing.entryId + '"]');
-    existingEntry.parentNode.replaceChild(generateDom(inputs), existingEntry);
+    existingEntry.replaceWith(generateDom(inputs));
     var entryIndex = data.entries.findIndex(function (entry) {
       return entry.entryId === editing.entryId;
     });
