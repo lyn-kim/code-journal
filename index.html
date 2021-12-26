@@ -42,6 +42,7 @@
       <div class="row">
         <ul class="list">
           <!-- new entries get appended here -->
+
         </ul>
       </div>
       <div class="message">
@@ -53,7 +54,7 @@
 
     <!-- entry form view -->
     <div class="row hidden" data-view="entry-form">
-      <header class="column-full new-entry">New Entry</header>
+      <header id="editEntry" class="column-full new-entry">New Entry</header>
       <form id="entry-form">
         <div class="row">
           <div class="column-half">
@@ -62,7 +63,7 @@
           <div class="column-half">
             <label for="title">
               <p class="label-text">Title</p>
-              <input id="title" type="text" class="input-box" name="title" required="required">
+              <input id="entryTitle" type="text" class="input-box" name="title" required="required">
             </label>
             <label for="url">
               <p class="label-text">Photo URL</p>
@@ -78,8 +79,9 @@
             </label>
           </div>
         </div>
-        <div class="row">
-          <div class="column-full save-button">
+        <div id="delete-or-save-buttons" class="row justify-space-btwn">
+
+          <div class="save-button">
             <button type="submit">SAVE</button>
           </div>
         </div>
