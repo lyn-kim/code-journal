@@ -19,6 +19,23 @@
 </head>
 <body>
 
+  <!-- delete confirmation modal -->
+  <div class="relative">
+    <div id="modal-view" class="row hidden" data-view="delete-modal">
+      <div class="modal-bg fixed">
+        <div class="modal-box center">
+          <div class="row justify-center">
+            <p class="delete-msg">Are you sure you want to delete this entry?</p>
+          </div>
+          <div class="row justify-space-btwn">
+            <button class="cancel-btn">CANCEL</button>
+            <button type="button" class="confirm-btn">CONFIRM</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="navbar">
     <div class="container">
       <div class="row">
@@ -33,7 +50,7 @@
   <div class="container">
 
     <!-- entries list view -->
-    <div class="row" data-view="entries">
+    <div class="row hidden" data-view="entries">
       <header class="new-entry">Entries</header>
       <div class="new-button">
         <a class="anchor-button">NEW</a>
@@ -42,6 +59,7 @@
       <div class="row">
         <ul class="list">
           <!-- new entries get appended here -->
+
         </ul>
       </div>
       <div class="message">
@@ -52,8 +70,8 @@
     </div>
 
     <!-- entry form view -->
-    <div class="row hidden" data-view="entry-form">
-      <header class="column-full new-entry">New Entry</header>
+    <div class="row" data-view="entry-form">
+      <header id="editEntry" class="column-full new-entry">New Entry</header>
       <form id="entry-form">
         <div class="row">
           <div class="column-half">
@@ -62,7 +80,7 @@
           <div class="column-half">
             <label for="title">
               <p class="label-text">Title</p>
-              <input id="title" type="text" class="input-box" name="title" required="required">
+              <input id="entryTitle" type="text" class="input-box" name="title" required="required">
             </label>
             <label for="url">
               <p class="label-text">Photo URL</p>
@@ -78,8 +96,11 @@
             </label>
           </div>
         </div>
-        <div class="row">
-          <div class="column-full save-button">
+        <div id="delete-or-save-buttons" class="row justify-space-btwn">
+          <div>
+            <button type="button" class="delete-button hidden">Delete Entry</button>
+          </div>
+          <div class="save-button">
             <button type="submit">SAVE</button>
           </div>
         </div>
