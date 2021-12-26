@@ -114,6 +114,7 @@ var newButton = document.querySelector('.new-button');
 newButton.addEventListener('click', buttonNew);
 
 function buttonNew() {
+  entryForm.reset();
   data.editing = null;
   switchView('entry-form');
 }
