@@ -33,7 +33,7 @@
   <div class="container">
 
     <!-- entries list view -->
-    <div class="row hidden" data-view="entries">
+    <div class="row" data-view="entries">
       <header class="new-entry">Entries</header>
       <div class="new-button">
         <a class="anchor-button">NEW</a>
@@ -53,7 +53,7 @@
     </div>
 
     <!-- entry form view -->
-    <div class="row" data-view="entry-form">
+    <div class="row hidden" data-view="entry-form">
       <header id="editEntry" class="column-full new-entry">New Entry</header>
       <form id="entry-form">
         <div class="row">
@@ -79,10 +79,8 @@
             </label>
           </div>
         </div>
-        <div id="delete-or-save-buttons" class="row">
-          <!-- <div>
-            <button class="delete-button">Delete Entry</button>
-          </div> -->
+        <div id="delete-or-save-buttons" class="row justify-space-btwn">
+
           <div class="save-button">
             <button type="submit">SAVE</button>
           </div>

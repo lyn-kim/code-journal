@@ -148,7 +148,8 @@ a.anchor-button {
 }
 
 @media screen and (min-width: 768px) {
-  div.new-button {
+  div.new-button,
+  div.save-button {
     margin-right: 1.5rem;
   }
 }

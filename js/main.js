@@ -116,6 +116,9 @@ newButton.addEventListener('click', buttonNew);
 function buttonNew() {
   entryForm.reset();
   data.editing = null;
+  // issue 4
+  // hideDeleteButton(event);
+  // issue 4
   switchView('entry-form');
 }
 
@@ -172,4 +175,6 @@ function editButton(event) {
       notes.value = data.editing.notes;
     }
   }
+
+  // showDeleteButton();
 }
