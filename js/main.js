@@ -136,6 +136,7 @@ function switchView(dataView) {
 
 var navEntryButton = document.querySelector('.nav-entries');
 navEntryButton.addEventListener('click', goToEntries);
+
 function goToEntries() {
   switchView('entries');
 }
@@ -173,11 +174,9 @@ function editButton(event) {
       notes.value = data.editing.notes;
     }
   }
-
   showDeleteButton();
 }
 
-// issue 4
 var deleteButton = document.querySelector('.delete-button');
 deleteButton.addEventListener('click', showDeleteButton);
 
@@ -199,10 +198,18 @@ function showModal(event) {
 var cancelButton = document.querySelector('.cancel-btn');
 cancelButton.addEventListener('click', switchToEditEntries);
 
-// var confirmButton = document.querySelector('.confirm-btn');
-// confirmButton.addEventListener('click', deleteEntryFromDom);
-// function deleteEntryFromDom(event) {
-// var currentEntry = data.editing;
-// console.log(currentEntry);
-// if (data.editing === currentEntry) { currentEntry.remove(); }
-// }
+var confirmButton = document.querySelector('.confirm-btn');
+confirmButton.addEventListener('click', deleteEntryFromDom);
+function deleteEntryFromDom(event) {
+
+  var editing = data.editing;
+  if (editing !== null) {
+    var entryIndex = data.entries.findIndex(function (entry) {
+      return entry.entryId === editing.entryId;
+    });
+    data.entries.splice(entryIndex, 1);
+  }
+
+  data.editing = null;
+  goToEntries();
+}
