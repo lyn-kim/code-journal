@@ -116,9 +116,9 @@ newButton.addEventListener('click', buttonNew);
 function buttonNew() {
   entryForm.reset();
   data.editing = null;
-  // issue 4
-  // hideDeleteButton(event);
-  // issue 4
+  var editEntriesTitle = document.getElementById('editEntry');
+  editEntriesTitle.textContent = 'New Entry';
+  hideDeleteButton(event);
   switchView('entry-form');
 }
 
@@ -138,6 +138,7 @@ function switchView(dataView) {
 
 var navEntryButton = document.querySelector('.nav-entries');
 navEntryButton.addEventListener('click', goToEntries);
+
 function goToEntries() {
   switchView('entries');
 }
@@ -175,6 +176,44 @@ function editButton(event) {
       notes.value = data.editing.notes;
     }
   }
+  showDeleteButton();
+}
 
-  // showDeleteButton();
+var deleteButton = document.querySelector('.delete-button');
+deleteButton.addEventListener('click', showDeleteButton);
+
+function showDeleteButton(event) {
+  deleteButton.className = 'delete-button';
+}
+
+function hideDeleteButton(event) {
+  deleteButton.className = 'delete-button hidden';
+}
+
+var modalView = document.getElementById('modal-view');
+
+deleteButton.addEventListener('click', showModal);
+function showModal(event) {
+  modalView.className = 'row';
+}
+
+var cancelButton = document.querySelector('.cancel-btn');
+cancelButton.addEventListener('click', switchToEditEntries);
+
+var confirmButton = document.querySelector('.confirm-btn');
+confirmButton.addEventListener('click', deleteEntryFromDom);
+
+function deleteEntryFromDom(event) {
+  var editing = data.editing;
+  if (editing !== null) {
+    var entryIndex = data.entries.findIndex(function (entry) {
+      return entry.entryId === editing.entryId;
+    });
+    data.entries.splice(entryIndex, 1);
+    var currentEntry = document.querySelector('[data-entry-id="' + editing.entryId + '"]');
+    currentEntry.remove();
+  }
+  data.editing = null;
+  checkEmptyList();
+  goToEntries();
 }
