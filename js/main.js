@@ -200,16 +200,18 @@ cancelButton.addEventListener('click', switchToEditEntries);
 
 var confirmButton = document.querySelector('.confirm-btn');
 confirmButton.addEventListener('click', deleteEntryFromDom);
-function deleteEntryFromDom(event) {
 
+function deleteEntryFromDom(event) {
   var editing = data.editing;
   if (editing !== null) {
     var entryIndex = data.entries.findIndex(function (entry) {
       return entry.entryId === editing.entryId;
     });
     data.entries.splice(entryIndex, 1);
+    var existingEntry = document.querySelector('[data-entry-id="' + editing.entryId + '"]');
+    existingEntry.remove();
   }
-
   data.editing = null;
+  checkEmptyList();
   goToEntries();
 }
