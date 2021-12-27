@@ -116,6 +116,8 @@ newButton.addEventListener('click', buttonNew);
 function buttonNew() {
   entryForm.reset();
   data.editing = null;
+  var editEntriesTitle = document.getElementById('editEntry');
+  editEntriesTitle.textContent = 'New Entry';
   hideDeleteButton(event);
   switchView('entry-form');
 }
@@ -208,8 +210,8 @@ function deleteEntryFromDom(event) {
       return entry.entryId === editing.entryId;
     });
     data.entries.splice(entryIndex, 1);
-    var existingEntry = document.querySelector('[data-entry-id="' + editing.entryId + '"]');
-    existingEntry.remove();
+    var currentEntry = document.querySelector('[data-entry-id="' + editing.entryId + '"]');
+    currentEntry.remove();
   }
   data.editing = null;
   checkEmptyList();
